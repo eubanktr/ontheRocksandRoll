@@ -1,6 +1,11 @@
-var enter = document.querySelector('postalCode');
+var button = document.getElementById('submitYes');
 
-enter.addEventListener('keydown', function(event){
+/* var relocate = function relocate() {
+    window.location.replace("index2.html");
+}; */
+
+button.addEventListener('click', function relocate (event){
     event.preventDefault();
-    window.location.replace("index2.html")
-})
+    window.location.replace("index2.html");
+});
+
