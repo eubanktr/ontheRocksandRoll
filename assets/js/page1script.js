@@ -6,6 +6,6 @@ var button = document.getElementById('submitYes');
 
 button.addEventListener('click', function relocate (event){
     event.preventDefault();
-    window.location.replace("index2.html");
+    window.location.replace("results.html");
 });
 

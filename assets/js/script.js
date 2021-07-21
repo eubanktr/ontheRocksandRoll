@@ -18,7 +18,10 @@ var yesHandler = function (event) {
 
   if (zipCode.length === 5) {
     getEventRepos(zipCode);
-    getDrink()
+    getDrink();
+    getDrink();
+    getDrink();
+    getDrink();
   } else { 
     
     return;
@@ -52,6 +55,7 @@ var getEventRepos = function(postalCode) {
 
 // console.log(getEventRepos);
 
+for (i = 0; i < 5; i++){
 function getDrink() {
  let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
  fetch(apiUrlD)
@@ -63,5 +67,8 @@ function getDrink() {
     }
   }
 )}
+
+console.log('iterated four times')
+};
 
 yesButton.on('click', yesHandler);
