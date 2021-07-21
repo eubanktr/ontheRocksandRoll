@@ -1,6 +1,7 @@
 var postalCode = $('#postalCode');
 var yesButton = $('#submitYes');
 var noButton = $('#sumbitNo');
+var storedDrinks = []
 
 
 
@@ -57,18 +58,17 @@ var getEventRepos = function(postalCode) {
 
 for (i = 0; i < 5; i++){
 function getDrink() {
- let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+for (let i=0; i<10; i++) {
+  let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
  fetch(apiUrlD)
   .then(function (response) {
     if (response.ok) {
         response.json().then(function (data) {
-        console.log(data)
+        storedDrinks.push(data)
       })
     }
   }
 )}
-
-console.log('iterated four times')
-};
-
+}
+console.log(storedDrinks)
 yesButton.on('click', yesHandler);

@@ -6,7 +6,7 @@
     <title>Results Page</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="./assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="./assets/css//style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
     <nav>
@@ -14,13 +14,18 @@
         <a href="#" class="brand-logo center">Search Results</a>
         </div>
     </nav>
-    <div class='container'></div>
-        <div class="row center">
-            <div class="col s4 m4 l4">
-                <h3><strong>Click the button below to return</strong></h3>
-                <button id='return'class="col s5 s5 m5 l5 btn-large waves-effect waves-light orange">Go Back</button>
+        <div class="row">
+            <div class="header col s4 m4 l4 light">
+                <h5><strong>Click the button below to return</strong></h5>
+                <button id='return'class='btn-large waves-effect waves-light orange'>Go Back</button>
             </div>
-        </div>
+            <div class="header col s4 m4 l4 light">
+                <h5><strong>Events are shown below!</strong></h5>
+            </div>
+            <div class='header col s4 m4 l4 light'>
+                <h5><strong>Your drink has been generated</strong></h5>
+            </div>
+    </div>
     
         <div class="row">
             <div class="col s6 offset-s9 drink1"><span class="flow-text">Drink 1</span></div>
@@ -28,8 +33,6 @@
             <div class="col s6 offset-s9 drink3"><span class="flow-text">Drink 3</span></div>
             <div class="col s6 offset-s9 drink4"><span class="flow-text">Drink 4</span></div>
 
-          </div>
-                
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="./assets/js/script.js"></script>
