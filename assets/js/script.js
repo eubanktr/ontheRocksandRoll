@@ -1,3 +1,4 @@
+var postalCode = $('#queryInput');
 
 
 
@@ -5,10 +6,21 @@
 
 
 
-
-const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events/";
+const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events.";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 
+var formSubmitHandler = function (event) {
+  event.preventDefault();
+
+  zipCode = postalCode.value.trim();
+
+  if (zipCode.length === 5) {
+    getEventRepos(zipCode);
+  } else { 
+    
+  }
+
+}
 
 var getEventRepos = function(postalCode) {
     var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&apikey=' + ticketMasterKey;
@@ -27,5 +39,5 @@ var getEventRepos = function(postalCode) {
         alert('Unable to connect to TicketMaster');
       });
 };
-
+getEventRepos();
 console.log(getEventRepos);
