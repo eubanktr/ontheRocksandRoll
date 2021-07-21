@@ -18,6 +18,7 @@ var yesHandler = function (event) {
 
   if (zipCode.length === 5) {
     getEventRepos(zipCode);
+    getDrink()
   } else { 
     
     return;
@@ -50,5 +51,17 @@ var getEventRepos = function(postalCode) {
 // getEventRepos();
 
 // console.log(getEventRepos);
+
+function getDrink() {
+ let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+ fetch(apiUrlD)
+  .then(function (response) {
+    if (response.ok) {
+        response.json().then(function (data) {
+        console.log(data)
+      })
+    }
+  }
+)}
 
 yesButton.on('click', yesHandler);
