@@ -1,8 +1,8 @@
 const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
-var eventNum = 8;
+var eventNum = 20;
 let listStart = document.getElementById('list-start')
-var storedDrinks = [];
+let drinkStart = document.getElementById('drink-start');
 
 
 const zipInput = localStorage.getItem('userZip')
@@ -53,7 +53,6 @@ if (events.length === 0) {
     eventL.append(pageBrk);
     eventL.append(infoIcon);
     eventL.append(eventUrl);
-    // console.log(eventL)
     eventL.classList = 'orange-text collection-item';
     infoIcon.classList = 'tiny material-icons';
     eventUrl.setAttribute('target', '_blank');
@@ -63,19 +62,72 @@ if (events.length === 0) {
     }
 }
 function getDrink() {
-    for (let i=0; i<10; i++) {
+    
         let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
         fetch(apiUrlD)
         .then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-            storedDrinks.push(data)
-            // execute a function you'll need to define, when ran you will pass stored drinks as an argument.
+                var container = document.createElement('div');
+                var containerSizing = document.createElement('div');
+                var card = document.createElement('div');
+                var cardImg = document.createElement('div');
+                var imgContainer = document.createElement('img');
+                var cardName = document.createElement('span');
+                var cardContent = document.createElement('div');
+                var cardAction = document.createElement('div');
+                var cardPara = document.createElement('p');
+                var cardLink = document.createElement('a');
+                var paraBrk = document.createElement('br');
+                var paraApol = document.createElement('p');
+    
+                
+                container.append(containerSizing);
+                containerSizing.append(card);
+                card.append(cardImg);
+                cardImg.append(imgContainer);
+                cardImg.append(cardName);
+                card.append(cardContent);
+                cardContent.append(cardPara);
+                cardContent.append(cardAction);
+                cardAction.append(cardLink);
+                drinkStart.append(container);
+                cardPara.append(paraBrk);
+                
+                container.classList = 'row';
+                containerSizing.classList = 'col s12 m7';
+                card.classList = 'card';
+                cardImg.classList = 'card-image';
+                imgContainer.setAttribute('src', data.drinks[0].strDrinkThumb);
+                cardLink.setAttribute('href', 'https://www.google.com');
+                cardLink.innerHTML = 'We apoligize for the inconvenience, we are unable to populate the ingredients for you. Click here to google the recipe.';
+                cardName.classList = 'card-title';
+                cardContent.classList = 'card-content';
+                cardAction.classList = 'card-action';
+                cardName.innerHTML = data.drinks[0].strDrink;
+                cardPara.innerHTML = data.drinks[0].strInstructions;
+            
+            // localStorage.setItem('drinksArr', storedDrinks) // execute a function you'll need to define, when ran you will pass stored drinks as an argument.
+        
         })
         };
+       
     }
-    )}
-    }
-console.log(storedDrinks)
-getDrink()
+    );
+    
+    };
+    // var drinksArr = localStorage.getItem('drinksArr');
+    // JSON.stringify(drinksArr);
+    // console.log(drinksArr);
+
+
+    //     };
+    //     };
+
+
+for (let i = 0; i < 8; i++) {
+    getDrink();
+};
+
 getEventRepos(zipInput)
+
