@@ -2,8 +2,13 @@ var postalCode = $('#postalCode');
 var yesButton = $('#submitYes');
 var noButton = $('#sumbitNo');
 var storedDrinks = []
+var backButton = $('#return');
 
 
+backButton.addEventListener('click', function goBack (event){
+    event.preventDefault();
+    window.location.replace("index.html");
+});
 
 
 
@@ -65,10 +70,12 @@ for (let i=0; i<10; i++) {
     if (response.ok) {
         response.json().then(function (data) {
         storedDrinks.push(data)
+        // execute a function you'll need to define, when ran you run stored drinks as an argument
       })
     }
   }
 )}
 }
-console.log(storedDrinks)
+console.log(storedDrinks) 
 yesButton.on('click', yesHandler);
+noButton.on('click', noHandler); };
