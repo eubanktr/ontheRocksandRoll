@@ -3,6 +3,8 @@ const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 20;
 let listStart = document.getElementById('list-start')
 let drinkStart = document.getElementById('drink-start');
+let buttonSel = localStorage.getItem('buttonId')
+console.log(buttonSel)
 
 
 const zipInput = localStorage.getItem('userZip')
@@ -111,7 +113,6 @@ function getDrink() {
         
         })
         };
-       
     }
     );
     
