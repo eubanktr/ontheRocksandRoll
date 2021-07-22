@@ -101,9 +101,9 @@ function getDrink() {
                 card.classList = 'card';
                 cardImg.classList = 'card-image';
                 imgContainer.setAttribute('src', data.drinks[0].strDrinkThumb);
-                cardLink.setAttribute('href', 'https://www.google.com');
+                cardLink.setAttribute('href', 'https://www.google.com/search?q=' + data.drinks[0].strDrink + '+ingredients');
                 cardLink.setAttribute('target' , '_blank');
-                cardLink.innerHTML = 'We apoligize for the inconvenience, we are unable to populate the ingredients for you. Click here to google the recipe.';
+                cardLink.innerHTML = 'Click here for the ingredients!';
                 cardName.classList = 'card-title';
                 cardContent.classList = 'card-content';
                 cardAction.classList = 'card-action';
