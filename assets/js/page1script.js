@@ -100,6 +100,7 @@ function getDrink() {
                 cardImg.classList = 'card-image';
                 imgContainer.setAttribute('src', data.drinks[0].strDrinkThumb);
                 cardLink.setAttribute('href', 'https://www.google.com');
+                cardLink.setAttribute('target' , '_blank');
                 cardLink.innerHTML = 'We apoligize for the inconvenience, we are unable to populate the ingredients for you. Click here to google the recipe.';
                 cardName.classList = 'card-title';
                 cardContent.classList = 'card-content';
