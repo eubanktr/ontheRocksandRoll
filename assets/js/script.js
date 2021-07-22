@@ -8,10 +8,7 @@ const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 8;
 var storedDrinks = [];
 
-backButton.addEventListener('click', function goBack (event){
-    event.preventDefault();
-    window.location.replace("index.html");
-});
+
 
 
 
@@ -142,3 +139,4 @@ for (let i=0; i<10; i++) {
 console.log(storedDrinks);
 yesButton.on('click', yesHandler);
 noButton.on('click', noHandler);
+};

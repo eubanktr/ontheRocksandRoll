@@ -3,6 +3,14 @@ const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 8;
 let listStart = document.getElementById('list-start')
 var storedDrinks = [];
+var backButton = $('#backButton')
+
+var goBack = function Back (event) {
+    event.preventDefault();
+    window.location.replace("index.html");
+  };
+  
+  backButton.addEventListener('click', goBack);
 
 
 const zipInput = localStorage.getItem('userZip')
