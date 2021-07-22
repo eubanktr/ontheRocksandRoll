@@ -54,7 +54,7 @@ var getEventRepos = function(postalCode) {
     eventUrl.innerHTML = eventText;
     infoIcon.innerHTML = icon;
     }
-}
+
 function getDrink() {
     for (let i=0; i<10; i++) {
         let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
