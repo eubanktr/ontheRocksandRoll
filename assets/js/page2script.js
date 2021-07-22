@@ -3,8 +3,6 @@ var yesButton = $('#submitYes');
 var noButton = $('#submitNo');
 var errModal = document.querySelector('#modal1');
 var bummerModal = document.querySelector('#modal2');
-const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
-const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 8;
 var storedDrinks = [];
 
@@ -84,29 +82,6 @@ var getEventRepos = function(postalCode) {
     });
 };
 
-var displayEvents = function (events) {
-if (events.length === 0) {
-    // Create dynamic container to display "No events found in + zipCode"
-    // var instance = M.Modal.getInstance(bummerModal);
-    //   instance.open();
-    return;
-}
-
-  // Dynamic container created 4 lines above displays events in the area.
-
-
-    var eventList = document.getElementById('eventList');
-    var eventEl = document.createElement('ul');
-    for (var i = 0; i < events.length; i++) {
-    var eventL = document.createElement('li')
-    eventL.textContent = events._embedded.events[i].name
-    console.log(eventL)
-    // eventEl.classList = 'STYLING HERE';
-    // eventList.appendChild(eventEl);
-    eventEl.append(eventL)
-    eventList.append(eventEl)
-}
-}
 
 // getEventRepos();
 
@@ -121,36 +96,71 @@ for (let i=0; i<10; i++) {
     if (response.ok) {
         response.json().then(function (data) {
         storedDrinks.push(data)
+        populateCards(storedDrinks);
         // execute a function you'll need to define, when ran you will pass stored drinks as an argument.
     })
     };
 }
 )}
-}
+populateCards(storedDrinks);
+};
+
+var populateCards = function (storedDrinks) {
+  for (let j = 0; j < storedDrinks.length; j++) {
+    var container = document.createElement('div');
+    var containerSizing = document.createElement('div');
+    var card = document.createElement('div');
+    var cardImg = document.createElement('div');
+    var imgContainer = document.createElement('img');
+    var cardName = document.createElement('span');
+    var cardContent = document.createElement('div');
+
+    container.append(containerSizing);
+    containerSizing.append(card);
+    card.append(cardImg);
+    cardImg.append(imgContainer);
+    cardImg.append(cardName);
+    card.append(cardContent);
+    drinkStart.append(container);
+    container.classList = 'row';
+    containerSizing.classList = 'col s12 m7';
+    card.classList = 'card';
+    cardImg.classList = 'card-image';
+    imgContainer.setAttribute('src', storedDrinks[j].drinks[0].strDrinkThumb);
+    cardName.classList = 'card-title';
+    cardContent.classList = 'card-content';
+
+
+  };
+};
+
+
+
+
+
+
 
 var displayDrinks = function drinkFxn (events) {
   if (events.length === 0) {
-      // Create dynamic container to display "No drinks found in + zipCode"
-      return;
+      return
   }
-  
-    // Dynamic container created 4 lines above displays drinks.
-  
-  
-      var drinkList = document.querySelector('.Drink-List');
-      var drinkEl = document.createElement('ul');
-      for (var i = 0; i < events.length; i++) {
-      var drinkL = document.createElement('li')
-      drinkL.textContent = events._embedded.events[i].name
-      console.log(drinkL)
-      // drinkEl.classList = 'STYLING HERE';
-      // drinkList.appendChild(drinkEl);
-      drinkEl.append(drinkL)
-      drinkList.append(drinkEl)
+  //var eventList = document.getElementById('eventList');
+  //var eventEl = document.createElement('ul');
+  for (var i = 0; i < events._embedded.events.length; i++) {
+  var drinkL = document.createElement('li');
+  var drinkUrl = document.createElement ('a');
+  var pageBrk = document.createElement('br');
+  drinkL.textContent = events._embedded.events[i].name
+  drinkUrl.textContent = events._embedded.events[i].url
+  listStart.append(drinkL);
+  drinkL.append(pageBrk);
+  drinkL.append(drinkUrl);
+  drinkL.classList = 'orange-text collection-item';
+  drinkUrl.setAttribute('target', '_blank');
+  drinkUrl.setAttribute(`href`, drinktUrl.textContent);
+  drinkUrl.innerHTML = drinkText;
   }
-  }
-
-
+};
 
 console.log(storedDrinks);
 yesButton.on('click', yesHandler);

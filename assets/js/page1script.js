@@ -30,7 +30,7 @@ var getEventRepos = function(postalCode) {
 
 var displayEvents = function (events) {
     if (events.length === 0) {
-        return;
+        return
     }
     //var eventList = document.getElementById('eventList');
     //var eventEl = document.createElement('ul');
@@ -56,6 +56,8 @@ var displayEvents = function (events) {
     infoIcon.innerHTML = icon;
     }
 }
+
+for (i = 0; i < 5; i++){
 function getDrink() {
     for (let i=0; i<10; i++) {
         let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -69,6 +71,29 @@ function getDrink() {
         };
     }
     )}
+    }
+}
+
+    var displayDrinks = function drinkFxn (events) {
+        if (events.length === 0) {
+            return
+        }
+        //var eventList = document.getElementById('eventList');
+        //var eventEl = document.createElement('ul');
+        for (var i = 0; i < events._embedded.events.length; i++) {
+        var drinkL = document.createElement('li');
+        var drinkUrl = document.createElement ('a');
+        var pageBrk = document.createElement('br');
+        drinkL.textContent = events._embedded.events[i].name
+        drinkUrl.textContent = events._embedded.events[i].url
+        listStart.append(drinkL);
+        drinkL.append(pageBrk);
+        drinkL.append(drinkUrl);
+        drinkL.classList = 'orange-text collection-item';
+        drinkUrl.setAttribute('target', '_blank');
+        drinkUrl.setAttribute(`href`, drinktUrl.textContent);
+        drinkUrl.innerHTML = drinkText;
+        }
     }
 console.log(storedDrinks)
 //getDrink()
