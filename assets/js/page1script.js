@@ -41,14 +41,25 @@ if (events.length === 0) {
     //var eventList = document.getElementById('eventList');
     //var eventEl = document.createElement('ul');
     for (var i = 0; i < events._embedded.events.length; i++) {
-    var eventL = document.createElement('li')
+    var eventL = document.createElement('li');
+    var eventUrl = document.createElement ('a');
+    var pageBrk = document.createElement('br');
+    var infoIcon = document.createElement('i');
+    var icon = 'info'
+    var eventText = '  Click here for more info!' // document.createTextNode('Click Here to Buy Tickets!');
     eventL.textContent = events._embedded.events[i].name
-    listStart.append(eventL)
-    console.log(eventL)
-    // eventEl.classList = 'STYLING HERE';
-    // eventList.appendChild(eventEl);
-    //eventEl.append(eventL)
-    //eventList.append(eventEl)
+    eventUrl.textContent = events._embedded.events[i].url
+    listStart.append(eventL);
+    eventL.append(pageBrk);
+    eventL.append(infoIcon);
+    eventL.append(eventUrl);
+    // console.log(eventL)
+    eventL.classList = 'orange-text collection-item';
+    infoIcon.classList = 'tiny material-icons';
+    eventUrl.setAttribute('target', '_blank');
+    eventUrl.setAttribute(`href`, eventUrl.textContent);
+    eventUrl.innerHTML = eventText;
+    infoIcon.innerHTML = icon;
     }
 }
 function getDrink() {
