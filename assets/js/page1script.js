@@ -28,9 +28,10 @@ var getEventRepos = function(postalCode) {
     });
 };
 
-
-
-
+var displayEvents = function (events) {
+    if (events.length === 0) {
+        return;
+    }
     //var eventList = document.getElementById('eventList');
     //var eventEl = document.createElement('ul');
     for (var i = 0; i < events._embedded.events.length; i++) {
@@ -54,7 +55,7 @@ var getEventRepos = function(postalCode) {
     eventUrl.innerHTML = eventText;
     infoIcon.innerHTML = icon;
     }
-
+}
 function getDrink() {
     for (let i=0; i<10; i++) {
         let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
