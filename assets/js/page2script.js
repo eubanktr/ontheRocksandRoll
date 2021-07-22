@@ -1,4 +1,4 @@
- /* function getData(url){
+/* function getData(url){
     fetch(url)  // read over http and request this data from a server //
     .then(response) => {
         console.log(response);  // console log only the data we need //
