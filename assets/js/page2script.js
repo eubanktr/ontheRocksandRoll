@@ -1,4 +1,4 @@
-var postalCode = $('#postalCode');
+/* var postalCode = $('#postalCode');
 var yesButton = $('#submitYes');
 var noButton = $('#submitNo');
 var errModal = document.querySelector('#modal1');
@@ -102,7 +102,7 @@ var displayEvents = function (events) {   // how we wanted to display the events
 }
 
 
-for (i = 0; i < 5; i++){  //for loop to iterate over the drink call function
+ for (i = 0; i < 5; i++){  //for loop to iterate over the drink call function
 function getDrink() {
 for (let i=0; i<10; i++) {
     let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -178,3 +178,5 @@ console.log(storedDrinks);
 yesButton.on('click', yesHandler);      //onclick listeners for each button
 noButton.on('click', noHandler);
 };
+
+*/
