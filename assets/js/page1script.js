@@ -18,16 +18,7 @@ const zipInput = localStorage.getItem('userZip')
 document.addEventListener('DOMContentLoaded', function() {
     M.Modal.init(bummerModal);
 });
-
-var getEventRepos = function(postalCode) {
-    var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&radius=100' + '&unit=miles' + '&size=' + eventNum + '&apikey=' + ticketMasterKey;
-
-const zipInput = localStorage.getItem('userZip') // getting the Zipcode
-document.addEventListener('DOMContentLoaded', function() {
-    M.Modal.init(bummerModal);
-});
-
-console.log(zipInput) 
+ 
 var getEventRepos = function(postalCode) {     //making the postal code function
     var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&size=' + eventNum + '&apikey=' + ticketMasterKey;  //concatenating parts of the API url
 
