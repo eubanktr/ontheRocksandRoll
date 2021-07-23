@@ -17,21 +17,22 @@
     <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h3 class="header center orange-text">Pick an event and generate a corresponding drink!</h3>
+        <h3 class="header center orange-text">Find an event and pick from a list of mixed drinks!</h3>
         <div class="row center">
             <h5 class="header col s12 m12 l12 light">What area are you looking in? Please enter the zip code below.</h5>
             <input class="header col s12 light" id = postalCode placeholder='Enter Zip Code'></input>
         </div>
-        <div class='row center header col s12 m12 l12 light'>Are you over the age of 21?</div>
         <br><br>
-        <br><br>
+      <div class="collection">
+        <h5 class='row center header col s12 m12 l12 light'><strong>Are you over the age of 21?</strong></h5>
+        <br>
         <div class="row center">
-            <button id="submitYes" class="col offset-l2 s3 m3 l3 btn-large waves-effect waves-light orange btn modal-trigger">Yes</button>
-            <div class = 'col s3 m3 l2'></div>
-            <button id="submitNo" class="col s3 m3 l3 btn-large waves-effect waves-light orange">No</button>
-        </div>
-        <br><br>
-        <br><br>
+            <button id="submitYes" class="row s3 m6 l3 btn-large waves-effect waves-light orange">Yes</button>
+            <button id="submitNo" class="row s3 m6 l3 btn-large waves-effect waves-light orange">No</button>
+            </div>
+      </div>
+        
+        
         
         </div>
         <div id="modal1" class="modal">
@@ -51,6 +52,6 @@
 
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<script src="./assets/js/indexScript.js"></script>
 </body>
 </html>
