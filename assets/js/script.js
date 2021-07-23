@@ -13,9 +13,7 @@ var eventNum = 8;
 document.addEventListener('DOMContentLoaded', function() {
 M.Modal.init(errModal);
 });
-document.addEventListener('DOMContentLoaded', function() {
-    M.Modal.init(bummerModal);
-});
+
 
 var yesHandler = function (event) {
     event.preventDefault();
