@@ -5,11 +5,18 @@ const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 20;
 let drinkStart = document.getElementById('drink-start');
-let buttonSel = localStorage.getItem('buttonId')
-console.log(buttonSel)
+let buttonSel = localStorage.getItem('buttonId');
+var bummerModal = document.getElementById('modal2');
+var errModal = document.getElementById('modal1');
+console.log(buttonSel);
+
 
 
 const zipInput = localStorage.getItem('userZip') // getting the Zipcode
+document.addEventListener('DOMContentLoaded', function() {
+    M.Modal.init(bummerModal);
+});
+
 console.log(zipInput) 
 var getEventRepos = function(postalCode) {     //making the postal code function
     var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&size=' + eventNum + '&apikey=' + ticketMasterKey;  //concatenating parts of the API url
@@ -33,9 +40,11 @@ var getEventRepos = function(postalCode) {     //making the postal code function
 
 
 var displayEvents = function (events) {   // how we wanted to display the events: in an unordered list
-    if (events.length === 0) {
-        return
-    }
+    if (events.length === undefined) {
+        var instance = M.modal.getInstance(bummerModal);
+        instance.open();
+        return;
+    };
 
     //var eventList = document.getElementById('eventList');
     //var eventEl = document.createElement('ul');
