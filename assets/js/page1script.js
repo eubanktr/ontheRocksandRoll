@@ -1,10 +1,10 @@
 const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
-var eventNum = 20;
+var eventNum = 100;
 let listStart = document.getElementById('list-start')
 let drinkStart = document.getElementById('drink-start');
 let buttonSel = localStorage.getItem('buttonId')
-var bummerModal = document.getElementById('modal2');
+var bummerModal = document.getElementById('modal2')
 console.log(buttonSel)
 // document.addEventListener('DOMContentLoaded', function() {
 //     M.Modal.init(bummerModal);
@@ -12,9 +12,13 @@ console.log(buttonSel)
 
 
 const zipInput = localStorage.getItem('userZip')
-console.log(zipInput)
+
+document.addEventListener('DOMContentLoaded', function() {
+    M.Modal.init(bummerModal);
+});
+
 var getEventRepos = function(postalCode) {
-    var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&size=' + eventNum + '&apikey=' + ticketMasterKey;
+    var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&radius=100' + '&unit=miles' + '&size=' + eventNum + '&apikey=' + ticketMasterKey;
 
     fetch(apiUrl)
     .then(function (response) {
@@ -34,15 +38,14 @@ var getEventRepos = function(postalCode) {
 };
 
 var displayEvents = function (events) {
-if (events.length === 0) {
+if (events.page.totalElements === 0) {
     // Create dynamic container to display "No events found in + zipCode"
-    // var instance = M.Modal.getInstance(bummerModal);
-    //   instance.open();
+    var instance = M.Modal.getInstance(bummerModal);
+    instance.open();
     return;
 }
 
   // Dynamic container created 4 lines above displays events in the area.
-
 
     //var eventList = document.getElementById('eventList');
     //var eventEl = document.createElement('ul');
@@ -66,7 +69,8 @@ if (events.length === 0) {
     eventUrl.innerHTML = eventText;
     infoIcon.innerHTML = icon;
     }
-}
+};
+
 function getDrink() {
     
         let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -85,9 +89,11 @@ function getDrink() {
                 var cardPara = document.createElement('p');
                 var cardLink = document.createElement('a');
                 var paraBrk = document.createElement('br');
-                var paraApol = document.createElement('p');
-    
-                
+                var drink = data.drinks[0].strDrink;
+                var splitDrink = drink.split(' ');
+                var joinDrink = splitDrink.join('-');
+                console.log(joinDrink);
+
                 container.append(containerSizing);
                 containerSizing.append(card);
                 card.append(cardImg);
@@ -105,7 +111,7 @@ function getDrink() {
                 card.classList = 'card';
                 cardImg.classList = 'card-image';
                 imgContainer.setAttribute('src', data.drinks[0].strDrinkThumb);
-                cardLink.setAttribute('href', 'https://www.google.com/search?q=' + data.drinks[0].strDrink + '+ingredients');
+                cardLink.setAttribute('href', 'https://www.thecocktaildb.com/drink/' + data.drinks[0].idDrink + '-' + joinDrink);
                 cardLink.setAttribute('target' , '_blank');
                 cardLink.innerHTML = 'Click here for the ingredients!';
                 cardName.classList = 'card-title';
@@ -124,7 +130,7 @@ function getDrink() {
     };
     // var drinksArr = localStorage.getItem('drinksArr');
     // JSON.stringify(drinksArr);
-    // console.log(drinksArr);
+    
 
 
     //     };
