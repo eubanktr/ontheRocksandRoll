@@ -72,7 +72,7 @@ var getEventRepos = function(postalCode) {  //concatenating the ticketMaster url
     });
 };
 
-var displayEvents = function (events) {   // how we wanted to display the events
+var displayEvents = function (events) {   // how we wanted to display the events: in an unordered list
   if (events.length === 0) {
       return
   }
@@ -84,7 +84,7 @@ var displayEvents = function (events) {   // how we wanted to display the events
   var pageBrk = document.createElement('br');
   var infoIcon = document.createElement('i');
   var icon = 'info'
-  var eventText = '  Click here for more info!' // document.createTextNode('Click Here to Buy Tickets!');
+  var eventText = '  Click here for more info!' // document.createTextNode('Click Here to Buy Tickets!'); //extra info about the tickets
   eventL.textContent = events._embedded.events[i].name
   eventUrl.textContent = events._embedded.events[i].url
   listStart.append(eventL);
@@ -102,11 +102,7 @@ var displayEvents = function (events) {   // how we wanted to display the events
 }
 
 
-// getEventRepos();
-
-// console.log(getEventRepos);
-
-for (i = 0; i < 5; i++){
+for (i = 0; i < 5; i++){  //for loop to iterate over the drink call function
 function getDrink() {
 for (let i=0; i<10; i++) {
     let apiUrlD = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -116,7 +112,7 @@ for (let i=0; i<10; i++) {
         response.json().then(function (data) {
         storedDrinks.push(data)
         populateCards(storedDrinks);
-        // execute a function you'll need to define, when ran you will pass stored drinks as an argument.
+        // execute a function we defined below, when ran you will pass stored drinks as an argument.
     })
     };
 }
@@ -124,9 +120,9 @@ for (let i=0; i<10; i++) {
 populateCards(storedDrinks);
 };
 
-var populateCards = function (storedDrinks) {
-  for (let j = 0; j < storedDrinks.length; j++) {
-    var container = document.createElement('div');
+var populateCards = function (storedDrinks) {          //styling the drink displays
+  for (let j = 0; j < storedDrinks.length; j++) {         //increment by 1 from 0 to the length of how many drinks we've stored
+    var container = document.createElement('div');        //creating divs, spans, and images to place the drinks
     var containerSizing = document.createElement('div');
     var card = document.createElement('div');
     var cardImg = document.createElement('div');
@@ -136,7 +132,7 @@ var populateCards = function (storedDrinks) {
     //var ingredList = document.createElement('ul');
     //var drinking = document.createElement('li');
 
-    container.append(containerSizing);
+    container.append(containerSizing);          // changing each card image
     containerSizing.append(card);
     card.append(cardImg);
     cardImg.append(imgContainer);
@@ -155,12 +151,10 @@ var populateCards = function (storedDrinks) {
   };
 };
 
-var displayDrinks = function drinkFxn (events) {
-  if (events.length === 0) {
+var displayDrinks = function drinkFxn (events) {     // making the display for the drink list by 
+  if (events.length === 0) {                         // creating a list with elements and styling them
       return
   }
-  //var eventList = document.getElementById('eventList');
-  //var eventEl = document.createElement('ul');
   for (var i = 0; i < events._embedded.events.length; i++) {
   var drinkL = document.createElement('li');
   var drinkUrl = document.createElement ('a');
@@ -180,7 +174,7 @@ var displayDrinks = function drinkFxn (events) {
 
 
 
-console.log(storedDrinks);
-yesButton.on('click', yesHandler);
+console.log(storedDrinks);              
+yesButton.on('click', yesHandler);      //onclick listeners for each button
 noButton.on('click', noHandler);
 };
