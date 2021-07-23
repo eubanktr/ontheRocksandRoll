@@ -4,7 +4,11 @@ var eventNum = 20;
 let listStart = document.getElementById('list-start')
 let drinkStart = document.getElementById('drink-start');
 let buttonSel = localStorage.getItem('buttonId')
+var bummerModal = document.getElementById('modal2');
 console.log(buttonSel)
+// document.addEventListener('DOMContentLoaded', function() {
+//     M.Modal.init(bummerModal);
+// });
 
 
 const zipInput = localStorage.getItem('userZip')
@@ -130,6 +134,7 @@ function getDrink() {
 for (let i = 0; i < 8; i++) {
     getDrink();
 };
+// M.Modal.getInstance(bummerModal).open()
 
 getEventRepos(zipInput)
 
