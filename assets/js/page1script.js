@@ -5,19 +5,12 @@ const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 20;
 let drinkStart = document.getElementById('drink-start');
-<<<<<<< HEAD
-let buttonSel = localStorage.getItem('buttonId');
-var bummerModal = document.getElementById('modal2');
-var errModal = document.getElementById('modal1');
-console.log(buttonSel);
-=======
 let buttonSel = localStorage.getItem('buttonId')
 var bummerModal = document.getElementById('modal2');
 console.log(buttonSel)
 // document.addEventListener('DOMContentLoaded', function() {
 //     M.Modal.init(bummerModal);
 // });
->>>>>>> 381a5427f4f60bfa38d7211d4ab2f3ce5ec0fd28
 
 
 
