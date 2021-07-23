@@ -4,7 +4,6 @@ var backButton = $('#backButton'); //linking a button the the index
 const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 100;
-let listStart = document.getElementById('list-start')
 let drinkStart = document.getElementById('drink-start');
 let buttonSel = localStorage.getItem('buttonId')
 var bummerModal = document.getElementById('modal2')
@@ -154,5 +153,4 @@ for (let i = 0; i < 8; i++) {
 };
 // M.Modal.getInstance(bummerModal).open()
 
-getEventRepos(zipInput)
-
+getEventRepos(zipInput);
