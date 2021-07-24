@@ -1,7 +1,9 @@
+let listStart = document.getElementById('list-start') //linking to the index
+var storedDrinks = [];
+var backButton = $('#backButton'); //linking a button the the index
 const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 100;
-let listStart = document.getElementById('list-start')
 let drinkStart = document.getElementById('drink-start');
 let buttonSel = localStorage.getItem('buttonId')
 var bummerModal = document.getElementById('modal2')
@@ -11,15 +13,15 @@ const zipInput = localStorage.getItem('userZip')
 document.addEventListener('DOMContentLoaded', function() {
     M.Modal.init(bummerModal);
 });
+ 
+var getEventRepos = function(postalCode) {     //making the postal code function
+    var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&size=' + eventNum + '&apikey=' + ticketMasterKey;  //concatenating parts of the API url
 
-var getEventRepos = function(postalCode) {
-    var apiUrl = ticketMasterUrl + '.json?postalCode=' + postalCode + '&radius=100' + '&unit=miles' + '&size=' + eventNum + '&apikey=' + ticketMasterKey;
-
-    fetch(apiUrl)
+    fetch(apiUrl) 
     .then(function (response) {
-        if (response.ok) {
+        if (response.ok) { //making sure we get a valid response
             response.json().then(function (data) {
-                displayEvents(data, postalCode);
+                displayEvents(data, postalCode);  //displaying the postal code 
                 console.log(data);
                 // window.location.replace('./results.html') works but no data pulled
             });
@@ -138,5 +140,4 @@ for (let i = 0; i < 8; i++) {
 };
 // M.Modal.getInstance(bummerModal).open()
 
-getEventRepos(zipInput)
-
+getEventRepos(zipInput);
