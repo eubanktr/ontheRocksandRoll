@@ -7,11 +7,6 @@ var eventNum = 100;
 let drinkStart = document.getElementById('drink-start');
 let buttonSel = localStorage.getItem('buttonId')
 var bummerModal = document.getElementById('modal2')
-console.log(buttonSel)
-// document.addEventListener('DOMContentLoaded', function() {
-//     M.Modal.init(bummerModal);
-// });
-
 
 const zipInput = localStorage.getItem('userZip')
 
@@ -49,8 +44,6 @@ if (events.page.totalElements === 0) {
 
   // Dynamic container created 4 lines above displays events in the area.
 
-    //var eventList = document.getElementById('eventList');
-    //var eventEl = document.createElement('ul');
     for (var i = 0; i < events._embedded.events.length; i++) {
     var eventL = document.createElement('li');
     var eventUrl = document.createElement ('a');
@@ -65,6 +58,7 @@ if (events.page.totalElements === 0) {
     eventL.append(infoIcon);
     eventL.append(eventUrl);
     eventL.classList = 'orange-text collection-item';
+    eventL.setAttribute('id', 'borderBot')
     infoIcon.classList = 'tiny material-icons';
     eventUrl.setAttribute('target', '_blank');
     eventUrl.setAttribute(`href`, eventUrl.textContent);
@@ -88,13 +82,13 @@ function getDrink() {
                 var cardName = document.createElement('span');
                 var cardContent = document.createElement('div');
                 var cardAction = document.createElement('div');
-                var cardPara = document.createElement('p');
+                var cardPara = document.createElement('h6');
                 var cardLink = document.createElement('a');
+                var aBrk = document.createElement('br');
                 var paraBrk = document.createElement('br');
                 var drink = data.drinks[0].strDrink;
                 var splitDrink = drink.split(' ');
                 var joinDrink = splitDrink.join('-');
-                console.log(joinDrink);
 
                 container.append(containerSizing);
                 containerSizing.append(card);
@@ -105,6 +99,7 @@ function getDrink() {
                 cardContent.append(cardPara);
                 cardContent.append(cardAction);
                 cardAction.append(cardLink);
+                cardAction.append(aBrk);
                 drinkStart.append(container);
                 cardPara.append(paraBrk);
                 
@@ -113,14 +108,15 @@ function getDrink() {
                 card.classList = 'card';
                 cardImg.classList = 'card-image';
                 imgContainer.setAttribute('src', data.drinks[0].strDrinkThumb);
+                cardLink.classList = 'col center';
                 cardLink.setAttribute('href', 'https://www.thecocktaildb.com/drink/' + data.drinks[0].idDrink + '-' + joinDrink);
                 cardLink.setAttribute('target' , '_blank');
                 cardLink.innerHTML = 'Click here for the ingredients!';
                 cardName.classList = 'card-title';
                 cardContent.classList = 'card-content';
                 cardAction.classList = 'card-action';
-                cardName.innerHTML = data.drinks[0].strDrink;
-                cardPara.innerHTML = data.drinks[0].strInstructions;
+                cardPara.classList = 'center';
+                cardPara.innerHTML = data.drinks[0].strDrink;
             
             // localStorage.setItem('drinksArr', storedDrinks) // execute a function you'll need to define, when ran you will pass stored drinks as an argument.
         
