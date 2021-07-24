@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Results Page</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper orange">
+        <a href="#" class="brand-logo right">Search Results</a>
+        <a href="./index.html" class='btn waves-effect waves-orange white orange-text' style="left: 10px;position:relative;">Back</a>
+        </div>
+    </nav>
+        <div class="row">
+            
+            <div class="header col s6 m6 l6 light">
+                <h5 id="eventList"><strong>Events are shown below!</strong></h5>
+                    <div id = 'list-start' class="collection">
+
+                    </div>
+            
+            </div>
+            <div class='header col s6 m6 l6 light'>
+                <h5 id="drinkList"><strong>Your drinks have been generated</strong></h5>
+                <div id ='drink-start'>
+
+                </div>
+            </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Well that is a bummer!</h4>
+          <p>There's nothing happening in that zip code, still welcome to make a drink and try a different zip code!</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a>
+        </div>
+    </div>
+    
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./assets/js/resultsScript.js"></script>
+</body>
+</html>
