@@ -5,15 +5,26 @@ const ticketMasterUrl = "https://app.ticketmaster.com/discovery/v2/events";
 const ticketMasterKey = "tNq308PJQ4YjlzGPiveVZXsWOYlMDGth";
 var eventNum = 100;
 let drinkStart = document.getElementById('drink-start');
-let buttonSel = localStorage.getItem('buttonId')
-var bummerModal = document.getElementById('modal2')
-console.log(buttonSel)
+let buttonSel = localStorage.getItem('buttonId');
+var bummerModal = document.getElementById('modal2');
+console.log(buttonSel);
 // document.addEventListener('DOMContentLoaded', function() {
 //     M.Modal.init(bummerModal);
 // });
 
 
-const zipInput = localStorage.getItem('userZip')
+const zipInput = localStorage.getItem('userZip');
+
+/*$(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data: {
+        "gin": null,
+        "vodka": null,
+        "rum": 'https://placehold.it/250x250'
+      },
+    });
+  });*/
+     
 
 document.addEventListener('DOMContentLoaded', function() {
     M.Modal.init(bummerModal);
@@ -115,7 +126,7 @@ function getDrink() {
                 imgContainer.setAttribute('src', data.drinks[0].strDrinkThumb);
                 cardLink.setAttribute('href', 'https://www.thecocktaildb.com/drink/' + data.drinks[0].idDrink + '-' + joinDrink);
                 cardLink.setAttribute('target' , '_blank');
-                cardLink.innerHTML = 'Click here for the ingredients!';
+                cardLink.innerHTML = "<span style= 'text-align:left'>Click here for the ingredients!</span>";
                 cardName.classList = 'card-title';
                 cardContent.classList = 'card-content';
                 cardAction.classList = 'card-action';
