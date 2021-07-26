@@ -19,3 +19,10 @@
   }
 };
 
+.collection {
+  border: 5px outset rgba(255, 166, 0, 0.774); 
+}
+
+#borderBot {
+  border-bottom: 3px outset rgba(255, 166, 0, 0.774);
+}
