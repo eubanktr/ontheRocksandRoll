@@ -9,4 +9,6 @@ User Story:
           2) As a user, I want to be shown events in the next several days with the most recent one shown first, along with the ability to filter by genre
           3) As a user, I want to be recommended a corresponding post or pre-event beverage based on the type of event. 
           4) As a user, if I accidentally input an incorrect zipcode, I want to be notified to correct it.
+          
+          [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
                         
